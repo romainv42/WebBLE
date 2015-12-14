@@ -1,0 +1,29 @@
+extends layout
+
+block content
+
+  .container
+    .header
+        h1= title
+            span.sensorlogo
+        p Welcome to #{title}
+    .content
+        a.connect#btnconnect Connect
+
+        #list
+            .item
+                .picto
+                    img.responsive(src="/images/temp.png")
+                .detail
+                    .btn-onoff
+                        a#btntemp.btn.off(data-service="temp", data-display="valtemp") &nbsp;
+                    #valtemp.values ?
+                    .unit °C
+
+     
+        h3 Logs:
+        pre#log
+
+block scriptJs
+    script(src='/javascripts/BluetoothInterface.js')
+    script(src='/javascripts/withings.js')
